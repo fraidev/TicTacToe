@@ -9,9 +9,9 @@ namespace TicTacToe
     {
         public IList<string> Lugar { get; set; } = new List<string>();
         public bool Jogando { get; set; } = true;
-        public bool JogadaValida { get; set; }
+        public bool JogadaValida { get; set; } = true;
         public string EstadoTabuleiro { get; set; } 
-        public string EscolhaNoTabuleiro { get; set; } = ("|------|------|------|\n"+
+        public string EscolhaNoTabuleiro { get; set; } =  ("|------|------|------|\n"+
                                                            "|   1  |   2  |   3  |\n"+
                                                            "|------|------|------|\n"+
                                                            "|   4  |   5  |   6  |\n"+
@@ -62,6 +62,7 @@ namespace TicTacToe
         private bool Equals(string a, string b, string c)
         {
             if (a == b && c == " ") return false;
+            
             return a == b && c == a;
         }
 
@@ -70,6 +71,7 @@ namespace TicTacToe
             if (escolha < 10 && escolha > 0 && Lugar[escolha] == " ")
             {
                 Lugar[escolha] = marca;
+                JogadaValida = true;
             }
             else
             {
