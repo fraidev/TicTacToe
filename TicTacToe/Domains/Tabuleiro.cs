@@ -9,6 +9,7 @@ namespace TicTacToe
     {
         public IList<string> Lugar { get; set; } = new List<string>();
         public bool Jogando { get; set; } = true;
+        public bool JogadaValida { get; set; }
         public string EstadoTabuleiro { get; set; } 
         public string EscolhaNoTabuleiro { get; set; } = ("|------|------|------|\n"+
                                                            "|   1  |   2  |   3  |\n"+
@@ -66,9 +67,14 @@ namespace TicTacToe
 
         public void Escolhe(int escolha, string marca)
         {
-            if (escolha < 10)
+            if (escolha < 10 && escolha > 0 && Lugar[escolha] == " ")
             {
                 Lugar[escolha] = marca;
+            }
+            else
+            {
+                Console.WriteLine($"Jogada Invalida, Jogue Novamente");
+                JogadaValida = false;
             }
             
             if (Ganhou())
@@ -78,5 +84,6 @@ namespace TicTacToe
             }
             
         }
+
     }
 }
