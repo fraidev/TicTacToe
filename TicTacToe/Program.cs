@@ -15,7 +15,6 @@ namespace TicTacToe
             
             while (tabuleiro.Jogando)
             {
-                
                 var x = int.Parse(Console.ReadLine());
                 jogadorX.Joga(tabuleiro, x);
                 tabuleiro.Imprima();

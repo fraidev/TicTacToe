@@ -10,6 +10,7 @@ namespace TicTacToe
         public IList<string> Lugar { get; set; } = new List<string>();
         public bool Jogando { get; set; } = true;
         public bool JogadaValida { get; set; } = true;
+        public string Ganhador { get; set; } = "";
         public string EstadoTabuleiro { get; set; } 
         public string EscolhaNoTabuleiro { get; set; } =  ("|------|------|------|\n"+
                                                            "|   1  |   2  |   3  |\n"+
@@ -81,8 +82,9 @@ namespace TicTacToe
             
             if (Ganhou())
             {
-                Console.WriteLine($"Jogador {marca} Ganhou");
                 Jogando = false;
+                Ganhador = "Jogador "+marca.ToUpper();
+                Console.WriteLine($"{Ganhador} Ganhou");
             }
             
         }
