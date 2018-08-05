@@ -40,6 +40,7 @@ namespace TicTacToe
                 }
             }
             Console.WriteLine("Fim De Jogo");
+            Console.ReadLine();
         }
     }
 }
